@@ -1,0 +1,37 @@
+{
+  "name": "azformgen",
+  "version": "1.0.0",
+  "description": "form generator with express and svelte",
+  "keywords": [
+    "svelte",
+    "svelte5",
+    "express",
+    "knex",
+    "form",
+    "generator"
+  ],
+  "homepage": "https://github.com/AliZolfaghar/AzFormGen#readme",
+  "bugs": {
+    "url": "https://github.com/AliZolfaghar/AzFormGen/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliZolfaghar/AzFormGen.git"
+  },
+  "license": "MIT",
+  "author": "Ali Zolfaghar (azolfaghar@gmail.com)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "knex": "^3.1.0",
+    "knex-paginate": "^3.2.0",
+    "morgan": "^1.10.1"
+  }
+}
