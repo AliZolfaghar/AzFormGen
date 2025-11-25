@@ -2,7 +2,7 @@
     let { 
         show = $bindable(false), 
         width = "500px", 
-        height = "500px", 
+        // height = "500px", 
         title = "", 
         className = "",
         titleClass = ""
@@ -77,7 +77,7 @@
         <div
             class="modal-content {className}"
             class:visible={isVisible}
-            style="width: {width}; height: {height};"
+            style="width: {width}; "
             on:click|stopPropagation
         >
             {#if title}

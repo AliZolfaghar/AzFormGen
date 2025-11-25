@@ -34,7 +34,7 @@
             <Header onToggleSidebar={toggleSidebar} />
         {/if}
         
-        <main class="flex-1 overflow-auto">
+        <main class="flex-1 overflow-auto px-4 py-4">
             <Router {routes} />
         </main>
         
