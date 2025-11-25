@@ -5,6 +5,7 @@
     import ModalStory from '../samples/Modal.stories.svelte'
     import Modal from '../lib/Modal.svelte';
   import Table from '../lib/Table.svelte';
+  import AzModal from '../components/AzModal.svelte';
     
     let chart;
     
@@ -68,14 +69,51 @@
         // sampleData = sampleData.filter(i => i.id !== item.id);
     }
 
+
+
+    let _showAzModal = $state(false);
+    const showAzModal = () => {
+        _showAzModal = true;
+    }
+
 </script>
 
 
 <!--  -->
 <button
-    onclick={showModal}
-    
+    onclick={showModal}    
 class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"> show modal </button>
+
+
+
+<button
+    onclick={showAzModal}    
+class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"> show AzModal </button>
+{_showAzModal}
+
+
+<AzModal 
+    bind:show={_showAzModal} 
+    title="test"
+    className="rtl"
+    titleClass="text-center "
+    
+    
+    
+    >
+    <br /> 
+
+    test
+
+    <br /><br /><br />
+    <button onclick={() => {
+        _showAzModal = false ; 
+    }}> close </button>
+</AzModal>
+
+
+
+
 
 <Modal bind:isOpen={showTestModal} title="نمونه مدال" width="max-w-2xl">
 
