@@ -1,14 +1,14 @@
 <script>
     import { replace } from 'svelte-spa-router';
     
-    let email = '';
-    let password = '';
-    let rememberMe = false;
-    let isLoading = false;
-    let errorMessage = '';
+    let email = $state('');
+    let password = $state('');
+    let rememberMe = $state(false);
+    let isLoading = $state(false);
+    let errorMessage = $state('');
     
     async function handleLogin(event) {
-        event.preventDefault();
+        event?.preventDefault();
         isLoading = true;
         errorMessage = '';
         
@@ -46,19 +46,18 @@
     <div class="max-w-md w-full">
         <!-- هدر -->
         <div class="text-center mb-8">
-            <div class="flex items-center justify-center mb-4 cursor-pointer" on:click={goToHome}>
+            <div class="flex items-center justify-center mb-4 cursor-pointer" onclick={goToHome}>
                 <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
                     <i class="fas fa-shield-alt text-white text-xl"></i>
                 </div>
                 <h1 class="text-2xl font-bold text-gray-800 mr-3">Suite Admin</h1>
             </div>
             <h2 class="text-3xl font-bold text-gray-800 mb-2">ورود به سیستم</h2>
-            <p class="text-gray-600">لطفا اطلاعات حساب خود را وارد کنید</p>
         </div>
 
         <!-- کارت لاگین -->
         <div class="bg-white rounded-2xl shadow-xl p-8">
-            <form on:submit={handleLogin} class="space-y-6">
+            <div class="space-y-6">
                 <!-- پیغام خطا -->
                 {#if errorMessage}
                     <div class="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -68,7 +67,7 @@
                         </div>
                     </div>
                 {/if}
-
+                
                 <!-- فیلد ایمیل -->
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
@@ -85,7 +84,7 @@
                         disabled={isLoading}
                     />
                 </div>
-
+                
                 <!-- فیلد رمز عبور -->
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
@@ -102,7 +101,7 @@
                         disabled={isLoading}
                     />
                 </div>
-
+                
                 <!-- Remember me و فراموشی رمز -->
                 <div class="flex items-center justify-between">
                     <label class="flex items-center">
@@ -114,20 +113,21 @@
                         />
                         <span class="text-sm text-gray-600">مرا به خاطر بسپار</span>
                     </label>
-                    
+                
                     <button 
-                        type="button" 
-                        on:click={goToForgotPassword}
+                        type="button"
+                        onclick={goToForgotPassword}
                         class="text-sm text-blue-600 hover:text-blue-800 transition-colors"
                         disabled={isLoading}
                     >
                         رمز عبور را فراموش کرده‌اید؟
                     </button>
                 </div>
-
+                
                 <!-- دکمه ورود -->
                 <button
-                    type="submit"
+                    type="button"
+                    onclick={handleLogin}
                     class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 focus:ring-4 focus:ring-blue-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={isLoading}
                 >
@@ -139,8 +139,8 @@
                         ورود به سیستم
                     {/if}
                 </button>
-            </form>
-
+            </div>
+            
             <!-- جداکننده -->
             <div class="mt-6 pt-6 border-t border-gray-200">
                 <div class="relative">
@@ -148,12 +148,12 @@
                         <div class="w-full border-t border-gray-300"></div>
                     </div>
                     <div class="relative flex justify-center text-sm">
-                        <span class="px-2 bg-white text-gray-500">یا ورود با</span>
+                        <span class="px-2 bg-white text-gray-500">یا ثبت نام</span>
                     </div>
                 </div>
 
                 <!-- دکمه‌های ورود با شبکه‌های اجتماعی -->
-                <div class="mt-4 grid grid-cols-2 gap-3">
+                <div class="mt-4 grid grid-cols-2 gap-3 hidden">
                     <button
                         type="button"
                         class="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
@@ -178,7 +178,7 @@
                 <p class="text-sm text-gray-600">
                     حساب کاربری ندارید؟
                     <button 
-                        on:click={goToRegister}
+                        onclick={goToRegister}
                         class="text-blue-600 hover:text-blue-800 font-medium transition-colors mr-1"
                         disabled={isLoading}
                     >
@@ -189,11 +189,11 @@
         </div>
 
         <!-- فوتر -->
-        <!-- <div class="mt-8 text-center">
+        <div class="mt-8 text-center">
             <p class="text-xs text-gray-500">
                 © 2024 Suite Admin. تمامی حقوق محفوظ است.
             </p>
-        </div> -->
+        </div>
     </div>
 </div>
 

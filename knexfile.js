@@ -1,7 +1,7 @@
 export default {
 	development: {
 		client: "better-sqlite3",
-		connection: { filename: "../db/azformgen.db" },
+		connection: { filename: "./db/azformgen.db" },
 		useNullAsDefault: true,
 		migrations: {
 			tableName: 'knex_migrations'

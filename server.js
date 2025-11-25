@@ -46,8 +46,12 @@ const startApp = async ( ) => {
     // setup express error handler
     app.use(( err , req , res , next ) => {
         try {
-            console.log('expres error handler' , res.headersSent);
+            console.log('-------------------------------')
+            console.log('|    expres error handler     |');
+            console.log('-------------------------------')
             console.log(err.stack)
+            console.log('-------------------------------')
+            // console.log(err)
             // if (res.headersSent) return next(err);
             // resturn sql serror message or error message or unhandled exception
             res.status(500).json({ message : err.sqlMessage || err.message || 'Internal Server Error (unhandled exception) ' });
@@ -64,9 +68,9 @@ const startApp = async ( ) => {
     });
 
     // listen to requests via express-app
-    app.listen(process.env.HTTP_PORT, err => {
+    app.listen(process.env.HTTP_PORT || 80 , err => {
         if (err) throw err;
-        console.log(`express listen on port : ${process.env.HTTP_PORT} , env : ${process.env.NODE_ENV}`);
+        console.log(`express listen on port : ${process.env.HTTP_PORT || 80} , env : ${process.env.NODE_ENV || 'development'}`);
     });
 };
 
