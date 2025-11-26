@@ -32,8 +32,13 @@ const routes = {
         asyncComponent: () => import("./pages/Register.svelte"),
     }),
 
+
     "/components": wrap({
         asyncComponent: () => import("./pages/Components.svelte"),
+    }),
+
+    "/formgenerator": wrap({
+        asyncComponent: () => import("./pages/FormGenerator.svelte"),
     }),
 
     // "/logout": wrap({

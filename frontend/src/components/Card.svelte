@@ -29,7 +29,7 @@
                 <div class="flex items-center space-x-3 ">
                     {#if icon}
                         <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-{icon} text-blue-600"></i>
+                            <i class="{icon} text-blue-600"></i>
                         </div>
                     {/if}
                     <div>

@@ -151,7 +151,7 @@
                         </th>
                     {/each}
                     {#if showActions}
-                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-1">
                             عملیات
                         </th>
                     {/if}
@@ -178,10 +178,10 @@
                                     {#if onEdit}
                                         <button
                                             onclick={() => handleEdit(item)}
-                                            class="text-blue-600 hover:text-blue-900 transition-colors p-1 rounded"
+                                            class="text-blue-600 hover:text-blue-900 transition-colors p-1 rounded pointer"
                                             title="ویرایش"
                                         >
-                                            <i class="fas fa-edit"></i>
+                                            <i class="fa-regular fa-edit text-2xl"></i>
                                         </button>
                                     {/if}
                                     {#if onDelete}
@@ -190,7 +190,7 @@
                                             class="text-red-600 hover:text-red-900 transition-colors p-1 rounded"
                                             title="حذف"
                                         >
-                                            <i class="fas fa-trash"></i>
+                                            <i class="fa-regular fa-trash text-2xl"></i>
                                         </button>
                                     {/if}
                                 </div>

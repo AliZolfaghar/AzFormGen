@@ -4,7 +4,7 @@
     import CardStory from '../samples/Card.stories.svelte'
     import ModalStory from '../samples/Modal.stories.svelte'
     import Modal from '../lib/Modal.svelte';
-  import Table from '../lib/Table.svelte';
+  import Table from '../components/Table.svelte';
   import AzModal from '../components/AzModal.svelte';
     
     let chart;
